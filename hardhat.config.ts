@@ -15,7 +15,8 @@ import "./tasks/FHECounter";
 // Run 'npx hardhat vars setup' to see the list of variables that need to be set
 
 const MNEMONIC: string = vars.get("MNEMONIC", "test test test test test test test test test test test junk");
-const INFURA_API_KEY: string = vars.get("INFURA_API_KEY", "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz");
+// const INFURA_API_KEY: string = vars.get("INFURA_API_KEY", "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz");
+// const PRIVATE_KEY: string = process.env.PRIVATE_KEY ?? "";
 
 const config: HardhatUserConfig = {
   defaultNetwork: "hardhat",
@@ -48,14 +49,26 @@ const config: HardhatUserConfig = {
       chainId: 31337,
       url: "http://localhost:8545",
     },
-    sepolia: {
+    // Somnia (No API key needed)
+    somnia: {
+      url: "https://rpc.ankr.com/somnia_testnet/f657a0ae49cacf657b8d6eb2cd62957e359c27311ad6b896ffb6f48d56bc5c3b",
       accounts: {
         mnemonic: MNEMONIC,
-        path: "m/44'/60'/0'/0/",
-        count: 10,
       },
-      chainId: 11155111,
-      url: `https://sepolia.infura.io/v3/${INFURA_API_KEY}`,
+    },
+    // Monad (No API key needed)
+    monad: {
+      url: "https://rpc.ankr.com/monad_testnet/f657a0ae49cacf657b8d6eb2cd62957e359c27311ad6b896ffb6f48d56bc5c3b",
+      accounts: {
+        mnemonic: MNEMONIC,
+      },
+    },
+    // 0g_galileo (No API key needed)
+    a0gi: {
+      url: "https://rpc.ankr.com/0g_galileo_testnet_evm/f657a0ae49cacf657b8d6eb2cd62957e359c27311ad6b896ffb6f48d56bc5c3b",
+      accounts: {
+        mnemonic: MNEMONIC,
+      },
     },
   },
   paths: {
